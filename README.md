@@ -17,7 +17,7 @@
 
 - **LLM 추출:** 언어 모델(LLM)을 사용하여 텍스트에서 주소 관련 엔티티를 식별하고 추출합니다.
 - **주소 매칭:** 추출된 주소를 알려진 주소 데이터베이스(`address.parquet.gzip`)와 비교하여 가장 일치하는 항목을 찾습니다.
-- **지오코딩:** 일치하는 주소에 대한 위도 및 경도를 얻습니다.
+- **좌표 변환:** 일치하는 주소에 대한 위도 및 경도를 얻습니다. (참고: [geopy 라이브러리](https://geopy.readthedocs.io/en/stable/#))
 
 이 프로세스를 실행하는 기본 스크립트는 `run_address_processing.py`입니다.
 
@@ -40,7 +40,7 @@
 주소 처리 파이프라인을 실행하려면 프로젝트 루트 디렉토리에서 `run_address_processing.py` 스크립트를 Python 모듈로 실행하십시오.
 
 ```bash
-poetry run python -m address_processor.run_address_processing
+poetry run python -m run_address_processing
 ```
 
 스크립트는 다음을 수행합니다.
@@ -65,8 +65,8 @@ poetry run python -m address_processor.run_address_processing
     - `custom_utils.py`: `load_var` 및 `save_var` 함수를 포함합니다.
     - `search_address.py`: 주소 검색과 관련된 함수(예: `find_keyword_with_postfix`)를 포함합니다.
     - `text_utils.py`: 텍스트 전처리를 위한 `clean_text` 함수를 포함합니다.
-  - `address/`: 입력 및 출력 주소 관련 데이터 파일을 위한 디렉토리.
-    - `df_addr.parquet.gzip`: 알려진 주소의 입력 데이터베이스.
+  - `data/`: 입력 및 출력 주소 관련 데이터 파일을 위한 디렉토리.
+    - `address.parquet.gzip`: 알려진 주소의 입력 데이터베이스.
     - `matched_addresses.parquet.gzip`: 처리되고 일치된 주소를 포함하는 출력 파일.
     - `sample.parquet.gzip`: 주소 추출을 위한 입력 텍스트 콘텐츠.
   - `log/`: 스크립트 실행 중 생성된 로그 파일을 위한 디렉토리.
@@ -83,4 +83,4 @@ poetry run python -m address_processor.run_address_processing
 성공적으로 실행되면 스크립트는 다음을 생성합니다.
 
 - `log/`에 로그 파일(예: `address_matching_YYYYMMDD_HHMMSS.log`)이 처리 단계를 자세히 설명합니다.
-- 추출된 RAG 정보, 일치하는 주소, 점수 및 지오코딩된 좌표를 포함하는 DataFrame이 있는 Parquet 파일 `address/matched_addresses.parquet.gzip`.
+- 추출된 RAG 정보, 일치하는 주소, 점수 및 지오코딩된 좌표를 포함하는 DataFrame이 있는 Parquet 파일 `data/matched_addresses.parquet.gzip`.
