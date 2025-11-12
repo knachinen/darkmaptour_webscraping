@@ -53,7 +53,7 @@ poetry run python -m run_address_processing
 
 ## 파일 구조
 
-- `address_processor/`: 메인 패키지 디렉토리.
+
   - `__init__.py`: `address_processor`를 Python 패키지로 만듭니다.
   - `run_address_processing.py`: 주소 처리 파이프라인을 실행하는 메인 스크립트.
   - `address_processor.py`: LLM 추출, 매칭 및 지오코딩을 조정하는 `AddressProcessor` 클래스를 포함합니다.
