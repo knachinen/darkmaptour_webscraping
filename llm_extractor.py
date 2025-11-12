@@ -6,7 +6,7 @@ import re
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import OllamaLLM
-from langchain_classic.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 class LLMExtractor:
     def __init__(self, model: str = 'gemma3:1b'):
