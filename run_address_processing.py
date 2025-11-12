@@ -36,8 +36,9 @@ if __name__ == "__main__":
     results_list = [] # Initialize list to store results
 
     # Process a range of indices for testing
-    start_index = 11
-    end_index = 20 # Process up to (but not including) 10
+    start_index = 0
+    # end_index = len(df_text) # Process up to (but not including) 
+    end_index = 100
 
     for index_iter, text_content in tqdm(zip(df_text.index[start_index:end_index], df_text.loc[start_index:end_index, 'content']), total=end_index-start_index, desc="Processing texts"):
         text = clean_text(text_content)
