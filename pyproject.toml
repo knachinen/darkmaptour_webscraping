@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.12"
 tqdm = "^4.67.1"
 pandas = "^2.3.3"
-joblib = "^1.5.2"
+
 geopy = "^2.4.1"
 langchain-text-splitters = "^1.0.0"
 langchain-ollama = "^1.0.0"

@@ -7,7 +7,7 @@ import pandas as pd
 from tqdm import tqdm
 
 # Local application imports
-from utils.text_utils import clean_text
+from text_utils import clean_text
 from address_processor import AddressProcessor
 
 # --- Data Loading ---

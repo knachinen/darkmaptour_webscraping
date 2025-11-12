@@ -60,11 +60,7 @@ poetry run python -m run_address_processing
   - `address_utils.py`: 주소 정규화 및 조작을 위한 유틸리티 함수.
   - `llm_extractor.py`: 정보 추출을 위해 언어 모델과 상호 작용합니다.
   - `address_matcher.py`: 데이터베이스에 대해 주소를 퍼지 매칭하는 로직을 구현합니다.
-  - `utils/`: 일반 유틸리티 함수를 위한 하위 패키지.
-    - `__init__.py`: `utils`를 Python 하위 패키지로 만듭니다.
-    - `custom_utils.py`: `load_var` 및 `save_var` 함수를 포함합니다.
-    - `search_address.py`: 주소 검색과 관련된 함수(예: `find_keyword_with_postfix`)를 포함합니다.
-    - `text_utils.py`: 텍스트 전처리를 위한 `clean_text` 함수를 포함합니다.
+  - `text_utils.py`: 텍스트 전처리를 위한 `clean_text` 함수를 포함합니다.
   - `data/`: 입력 및 출력 주소 관련 데이터 파일을 위한 디렉토리.
     - `address.parquet.gzip`: 알려진 주소의 입력 데이터베이스.
     - `matched_addresses.parquet.gzip`: 처리되고 일치된 주소를 포함하는 출력 파일.
