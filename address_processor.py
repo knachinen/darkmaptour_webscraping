@@ -2,13 +2,13 @@ import logging
 import pandas as pd
 from geopy.geocoders import Nominatim
 
-from address_processor.address_utils import (
+from address_utils import (
     normalize_address_df,
     normalize_rag_address,
     strip_address_postfixes
 )
-from address_processor.llm_extractor import LLMExtractor
-from address_processor.address_matcher import AddressMatcher
+from llm_extractor import LLMExtractor
+from address_matcher import AddressMatcher
 
 class AddressProcessor:
     def __init__(self, df_addr: pd.DataFrame, llm_model: str = 'gemma3:1b'):

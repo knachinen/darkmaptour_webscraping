@@ -5,30 +5,21 @@ from datetime import datetime
 # Third-party library imports
 import pandas as pd
 from tqdm import tqdm
-# from geopy.geocoders import Nominatim # No longer needed here
 
 # Local application imports
-from address_processor.utils.custom_utils import load_var, save_var
-from address_processor.utils.text_utils import clean_text
-# from address_processor.address_utils import ( # No longer needed here
-#     normalize_address_df,
-#     normalize_rag_address,
-#     strip_address_postfixes
-# )
-# from address_processor.llm_extractor import LLMExtractor # No longer needed here
-# from address_processor.address_matcher import AddressMatcher # No longer needed here
-from address_processor.address_processor import AddressProcessor # Import AddressProcessor
+from utils.text_utils import clean_text
+from address_processor import AddressProcessor
 
 # --- Data Loading ---
-df_addr = pd.read_parquet('address_processor/address/df_addr.parquet.gzip')
-df_text = pd.read_parquet('address_processor/dataframe/flasher_hk_20130101_20220307_loc.parquet.gzip')
+df_addr = pd.read_parquet('data/address.parquet.gzip')
+df_text = pd.read_parquet('data/sample.parquet.gzip')
 # --- End Data Loading ---
 
 # --- Main Execution ---
 if __name__ == "__main__":
     # Configure logging
     log_filename = datetime.now().strftime("address_matching_%Y%m%d_%H%M%S.log")
-    log_directory = f"address_processor/log/"
+    log_directory = f"log/"
     log_path = f"{log_directory}{log_filename}"
     logging.basicConfig(
         level=logging.DEBUG,
@@ -62,5 +53,5 @@ if __name__ == "__main__":
 
     # Convert results to DataFrame and save
     results_df = pd.DataFrame(results_list)
-    results_df.to_parquet('address_processor/address/matched_addresses.parquet.gzip', compression='gzip')
-    print(f"\nResults saved to address/matched_addresses.parquet.gzip")
+    results_df.to_parquet('data/matched_addresses.parquet.gzip', compression='gzip')
+    print(f"\nResults saved to data/matched_addresses.parquet.gzip")

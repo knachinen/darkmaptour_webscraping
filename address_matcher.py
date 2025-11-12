@@ -2,7 +2,7 @@ import logging
 import pandas as pd
 from fuzzywuzzy import fuzz
 
-from address_processor.address_utils import (
+from address_utils import (
     strip_address_postfixes,
     normalize_rag_address,
     extract_lv0_from_rag_address
