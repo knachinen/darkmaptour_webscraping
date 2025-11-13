@@ -4,7 +4,8 @@ import pandas as pd
 from fuzzywuzzy import fuzz
 
 # --- Constants ---
-ADDRESS_POSTFIXES = ['특별시', '광역시', '도', '시', '군', '구', '읍', '면', '동', '가', '리', '로']
+# ADDRESS_POSTFIXES = ['특별시', '광역시', '도', '시', '군', '구', '읍', '면', '동', '가', '리', '로']
+ADDRESS_POSTFIXES = ['특별시', '광역시', '시', '경찰서', '지법']
 # --- End Constants ---
 
 def get_json(json_text: str, verbose: bool = False) -> dict:

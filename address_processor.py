@@ -31,14 +31,15 @@ class AddressProcessor:
         rag_json = self.llm_extractor.extract_info(text=text)
 
         if rag_json:
-            result_dict['rag_누가'] = rag_json.get('누가')
-            result_dict['rag_언제'] = rag_json.get('언제')
-            result_dict['rag_어디서'] = rag_json.get('어디서')
-            result_dict['rag_무엇을'] = rag_json.get('무엇을')
-            result_dict['rag_기타_지역_정보'] = rag_json.get('기타 지역 정보')
+            result_dict['address'] = rag_json.get('address')
+            result_dict['who'] = rag_json.get('who')
+            result_dict['when'] = rag_json.get('when')
+            result_dict['where'] = rag_json.get('where')
+            result_dict['what'] = rag_json.get('what')
+            result_dict['other'] = rag_json.get('other')
 
-            if '어디서' in rag_json and rag_json['어디서']:
-                rag_address = rag_json['어디서']
+            if 'address' in rag_json and rag_json['address']:
+                rag_address = rag_json['address']
                 normalized_rag_addr = normalize_rag_address(rag_address)
 
                 best_match, score, matched_row = self.address_matcher.find_matching_address(normalized_rag_addr)
