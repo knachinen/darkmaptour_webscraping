@@ -20,7 +20,7 @@ class AddressProcessor:
     def process_text(self, text_content: str) -> dict:
         result_dict = {
             'original_text': text_content,
-            'rag_누가': None, 'rag_언제': None, 'rag_어디서': None, 'rag_무엇을': None, 'rag_기타_지역_정보': None,
+            'address': None, 'who': None, 'when': None, 'where': None, 'what': None, 'other': None,
             'matched_address_display': None, 'match_score': None, 'matched_full_address_df': None,
             'matched_lv0': None, 'matched_lv1': None, 'matched_lv2': None, 'matched_lv3': None, 'matched_lv4': None,
             'latitude': None, 'longitude': None, 'geocoded_address': None

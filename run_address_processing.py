@@ -8,7 +8,7 @@ import pandas as pd
 from tqdm import tqdm
 
 # Local application imports
-from text_utils import clean_text, save_json_data, load_json_data, get_timestamp
+from text_utils import clean_text, save_json_data, get_timestamp
 from address_processor import AddressProcessor
 
 # --- Data Loading ---
