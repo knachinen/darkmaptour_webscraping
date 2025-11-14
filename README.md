@@ -10,6 +10,7 @@
 - [파일 구조](#파일-구조)
 - [구성](#구성)
 - [출력](#출력)
+- [발표자료](#발표자료)
 
 ## 프로젝트 개요
 
@@ -53,19 +54,18 @@ poetry run python -m run_address_processing
 
 ## 파일 구조
 
-
-  - `__init__.py`: `address_processor`를 Python 패키지로 만듭니다.
-  - `run_address_processing.py`: 주소 처리 파이프라인을 실행하는 메인 스크립트.
-  - `address_processor.py`: LLM 추출, 매칭 및 지오코딩을 조정하는 `AddressProcessor` 클래스를 포함합니다.
-  - `address_utils.py`: 주소 정규화 및 조작을 위한 유틸리티 함수.
-  - `llm_extractor.py`: 정보 추출을 위해 언어 모델과 상호 작용합니다.
-  - `address_matcher.py`: 데이터베이스에 대해 주소를 퍼지 매칭하는 로직을 구현합니다.
-  - `text_utils.py`: 텍스트 전처리를 위한 `clean_text` 함수를 포함합니다.
-  - `data/`: 입력 및 출력 주소 관련 데이터 파일을 위한 디렉토리.
-    - `address.parquet.gzip`: 알려진 주소의 입력 데이터베이스.
-    - `matched_addresses.parquet.gzip`: 처리되고 일치된 주소를 포함하는 출력 파일.
-    - `sample.parquet.gzip`: 주소 추출을 위한 입력 텍스트 콘텐츠.
-  - `log/`: 스크립트 실행 중 생성된 로그 파일을 위한 디렉토리.
+- `__init__.py`: `address_processor`를 Python 패키지로 만듭니다.
+- `run_address_processing.py`: 주소 처리 파이프라인을 실행하는 메인 스크립트.
+- `address_processor.py`: LLM 추출, 매칭 및 지오코딩을 조정하는 `AddressProcessor` 클래스를 포함합니다.
+- `address_utils.py`: 주소 정규화 및 조작을 위한 유틸리티 함수.
+- `llm_extractor.py`: 정보 추출을 위해 언어 모델과 상호 작용합니다.
+- `address_matcher.py`: 데이터베이스에 대해 주소를 퍼지 매칭하는 로직을 구현합니다.
+- `text_utils.py`: 텍스트 전처리를 위한 `clean_text` 함수를 포함합니다.
+- `data/`: 입력 및 출력 주소 관련 데이터 파일을 위한 디렉토리.
+  - `address.parquet.gzip`: 알려진 주소의 입력 데이터베이스.
+  - `matched_addresses.parquet.gzip`: 처리되고 일치된 주소를 포함하는 출력 파일.
+  - `sample.parquet.gzip`: 주소 추출을 위한 입력 텍스트 콘텐츠.
+- `log/`: 스크립트 실행 중 생성된 로그 파일을 위한 디렉토리.
 
 ## 구성
 
@@ -80,3 +80,7 @@ poetry run python -m run_address_processing
 
 - `log/`에 로그 파일(예: `address_matching_YYYYMMDD_HHMMSS.log`)이 처리 단계를 자세히 설명합니다.
 - 추출된 RAG 정보, 일치하는 주소, 점수 및 지오코딩된 좌표를 포함하는 DataFrame이 있는 Parquet 파일 `data/matched_addresses.parquet.gzip`.
+
+## 발표자료
+
+2025-11-15 [발표자료](slide/index.html)
